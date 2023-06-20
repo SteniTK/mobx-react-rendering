@@ -1,5 +1,6 @@
 import React from "react"
 import { observer } from "mobx-react"
+import TodoItem from './TodoItem';
 
 
 @observer
@@ -20,13 +21,11 @@ export default class TodoList extends React.Component {
   }
 
   render() {
-    const { clearComplete, filter, filteredTodos, todos } = this.props.store
+    const { clearComplete, filter, filteredTodos, todos, markComplete } = this.props.store
 
     const todoLis = filteredTodos.map(todo => (
-      <li key={todo.id}>
-       <input type="checkbox" onChange={this.toggleComplete.bind(this, todo)} value={todo.complete} checked={todo.complete} />
-       <span>{todo.value}</span>
-      </li>
+      <TodoItem {...todo} markComplete={markComplete}/>
+      // <TodoItem todo={todo} markComplete={markComplete}/>
     ))
     return <div>
       <h1>todos</h1>

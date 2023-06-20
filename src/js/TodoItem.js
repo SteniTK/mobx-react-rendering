@@ -1,0 +1,20 @@
+import React from "react"
+import { observer } from "mobx-react"
+
+const TodoItem = observer(({
+  // todo,
+  id, value,complete, 
+  markComplete}) => {
+  // const {
+  //   id,
+  //   value,
+  //   complete,
+  // } = todo;
+  return (
+    <li key={id}>
+    <input type="checkbox" onChange={() => markComplete(id)} value={complete} checked={complete} />
+    <span>{value}</span>
+    </li>)
+});
+
+export default TodoItem;

@@ -28,6 +28,11 @@ export class TodoStore {
     const incompleteTodos = this.todos.filter(todo => !todo.complete)
     this.todos.replace(incompleteTodos)
   }
+
+  markComplete = (id) => {
+    const todo = this.todos.find((t) => t.id === id);
+    todo.complete = !todo.complete;
+  }
 }
 
 export default new TodoStore
