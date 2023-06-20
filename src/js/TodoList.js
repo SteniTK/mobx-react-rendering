@@ -18,7 +18,7 @@ const TodoList = observer(({ store }) => {
     store.searchQuery = e.target.value
   }
 
-  const todoLis = filteredTodos.map(todo => (
+  const todoList = filteredTodos.map(todo => (
     <TodoItem {...todo} key={todo.id} markComplete={markComplete}/>
     // <TodoItem todo={todo} markComplete={markComplete}/>
   ))
@@ -26,7 +26,7 @@ const TodoList = observer(({ store }) => {
     <h1>todos</h1>
     <input className="new" onKeyPress={createNew()} placeholder="enter new todo"/>
     <input className="filter" value={searchQuery} onChange={filter()} placeholder="search todos"/>
-    <ul>{todoLis}</ul>
+    <ul>{todoList}</ul>
     <a href="#" onClick={clearComplete}>Clear Complete</a>
   </div>
 });
