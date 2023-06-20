@@ -14,10 +14,10 @@ class Todo {
 
 export class TodoStore {
   @observable todos = []
-  @observable filter = ""
+  @observable searchQuery = ""
   @computed get filteredTodos() {
-    var matchesFilter = new RegExp(this.filter, "i")
-    return this.todos.filter(todo => !this.filter || matchesFilter.test(todo.value))
+    var matchesFilter = new RegExp(this.searchQuery, "i")
+    return this.todos.filter(todo => !this.searchQuery || matchesFilter.test(todo.value))
   }
 
   createTodo(value) {
