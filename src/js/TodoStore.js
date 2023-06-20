@@ -20,6 +20,14 @@ export class TodoStore {
     return this.todos.filter(todo => !this.searchQuery || matchesFilter.test(todo.value))
   }
 
+  @computed get countComplete() {
+    return this.todos.filter(todo => todo.complete).length
+  }
+
+  @computed get allCount() {
+    return this.todos.length
+  }
+
   createTodo(value) {
     this.todos.push(new Todo(value))
   }
