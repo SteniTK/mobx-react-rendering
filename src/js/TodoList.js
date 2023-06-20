@@ -19,7 +19,7 @@ const TodoList = observer(({ store }) => {
   }
 
   const todoLis = filteredTodos.map(todo => (
-    <TodoItem {...todo} markComplete={markComplete}/>
+    <TodoItem {...todo} key={todo.id} markComplete={markComplete}/>
     // <TodoItem todo={todo} markComplete={markComplete}/>
   ))
   return <div>

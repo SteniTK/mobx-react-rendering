@@ -11,9 +11,9 @@ const TodoItem = observer(({
   //   complete,
   // } = todo;
   return (
-    <li key={id}>
-    <input type="checkbox" onChange={() => markComplete(id)} value={complete} checked={complete} />
-    <span>{value}</span>
+    <li>
+      <input type="checkbox" onChange={() => markComplete(id)} value={complete} checked={complete} />
+      <span>{value}</span>
     </li>)
 });
 
