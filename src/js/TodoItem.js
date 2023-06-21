@@ -3,13 +3,13 @@ import { observer } from "mobx-react"
 
 const TodoItem = observer(({
   todo,
-  // id, value,complete, 
+  id, value,complete, 
   markComplete}) => {
-  const {
-    id,
-    value,
-    complete,
-  } = todo;
+  // const {
+  //   id,
+  //   value,
+  //   complete,
+  // } = todo;
   return (
     <li>
       <input type="checkbox" onChange={() => markComplete(id)} value={complete} checked={complete} />
