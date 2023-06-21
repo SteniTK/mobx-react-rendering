@@ -5,9 +5,9 @@ import TodoItem from './TodoItem';
 
 const TodoList = observer(({ store }) => {
 
-  const { searchQuery, 
-    clearComplete, filteredTodos, markComplete 
-    // countComplete, allCount,
+  const { searchQuery, markComplete, 
+    clearComplete, filteredTodos,
+    countComplete, allCount,
   } = store
 
   const createNew = () => (e) => {
@@ -21,8 +21,7 @@ const TodoList = observer(({ store }) => {
     store.searchQuery = e.target.value
   }
   const todoList = filteredTodos.map(todo => (
-    <TodoItem {...todo} key={todo.id} markComplete={markComplete}/>
-    // <TodoItem todo={todo} key={todo.id} markComplete={markComplete}/>
+    <TodoItem todo={todo} key={todo.id} markComplete={markComplete}/>
   ))
   return <div>
     <h1>todos</h1>
@@ -30,10 +29,10 @@ const TodoList = observer(({ store }) => {
     <input className="filter" value={searchQuery} onChange={filter()} placeholder="search todos"/>
     <ul>{todoList}</ul>
     <a href="#" onClick={clearComplete}>Clear Complete</a>
-    {/* <h4>
+    <h4>
       <span>{countComplete} completed</span>
       <span> out of {allCount}</span>
-    </h4> */}
+    </h4>  
 
     {/* <TodosView store={store} />
     <Actions store={store} /> */}
